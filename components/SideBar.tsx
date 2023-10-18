@@ -20,14 +20,14 @@ import wakpaBlogsIcon from "@/public/svg/WapkaReadBlogIcon.svg";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import useCollapse from "@/hooks/useCollapse";
 
-interface ISidebar {
+export interface ISidebar {
 	name?: string;
 	icon?: string;
 	icons?: string[];
 	dropdown?: boolean;
 }
 
-const sidebarLinks: ISidebar[] = [
+export const sidebarLinks: ISidebar[] = [
 	{ name: "Discover", icon: `${discoverIcon.src}` },
 	{ name: "Top 50 podcasts", icon: `${starIcon.src}` },
 	{ name: "Categories", icon: `${categoryIcon.src}` },
@@ -56,7 +56,7 @@ const SideBar = () => {
 	const { isCollapse, toggleCollapse } = useCollapse();
 
 	return (
-		<div className="w-full max-w-[16rem] hidden md:flex flex-col items-start gap-2 min-h-[60vh] bg-deeperGrey shadow shadow-[0px 0px 20px 0px rgba(0, 0, 0, 0.10)]">
+		<div className="w-full max-w-[16rem] hidden md:flex flex-col items-start gap-2 min-h-[60vh] bg-deeperGrey shadow-[0px_0px_0px_0px] shadow-[0px 0px 20px 0px rgba(0, 0, 0, 0.10)]">
 			<div className="w-full max-w-[6.1875rem] max-h-[2.75rem] p-4">
 				<Image src={logo.src} alt="logo" width={99} height={44} />
 			</div>

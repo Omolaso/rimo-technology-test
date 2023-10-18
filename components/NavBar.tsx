@@ -1,19 +1,20 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { Typography } from "@mui/material";
 import searchIcon from "@/public/svg/searchIcon.svg";
 import downloadIcon from "@/public/svg/downloadIcon.svg";
 import loginIcon from "@/public/svg/loginIcon.svg";
 import signupIcon from "@/public/svg/signupIcon.svg";
 import MobileViewNavs from "./MobileViewNavs";
-import useSignUpDialog from "@/hooks/useSignUpDialog";
-import SignUpFormDialog from "@/utils/SignUpDialog";
+import useLoginDialog from "@/hooks/useLoginDialog";
 import LoginFormDialog from "@/utils/LoginFormDialog";
 
 const NavBar = () => {
-	const { openSignUpDialog, setOpenSignUpDialog, handleSignUpDialogOpen } =
-		useSignUpDialog();
+	const router = useRouter();
+	const { loginDialog, setLoginDialog, handleLoginDialogOpen } =
+		useLoginDialog();
 
 	return (
 		<>
@@ -43,9 +44,10 @@ const NavBar = () => {
 									Download the App
 								</Typography>
 							</button>
+                            
 							<button
 								type="button"
-								onClick={handleSignUpDialogOpen}
+                                onClick={() => router.push("/signup")}
 								className="flex flex-row items-center justify-center p-1 gap-2 w-full max-w-[7.5rem] min-h-[2.625rem] bg-buttonColor rounded-[1.125rem] hover:scale-95 duration-500 ease-in-out"
 							>
 								<Image
@@ -61,9 +63,10 @@ const NavBar = () => {
 									Sign Up
 								</Typography>
 							</button>
+
 							<button
 								type="button"
-								// onClick={handleClickOpen}
+								onClick={handleLoginDialogOpen}
 								className="flex flex-row items-center justify-center p-1 gap-2 w-full max-w-[7.5rem] min-h-[2.625rem] bg-[transparent] border border-white rounded-[1.125rem] hover:scale-95 duration-500 ease-in-out"
 							>
 								<Image
@@ -84,8 +87,7 @@ const NavBar = () => {
 				</div>
 				<MobileViewNavs />
 			</nav>
-			{/* <LoginFormDialog open={open} setOpen={setOpen} /> */}
-			<SignUpFormDialog open={openSignUpDialog} setOpen={setOpenSignUpDialog} />
+			<LoginFormDialog open={loginDialog} setOpen={setLoginDialog} />
 		</>
 	);
 };

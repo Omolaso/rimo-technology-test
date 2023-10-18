@@ -22,8 +22,9 @@ module.exports = {
 				deeperGrey: "#303030",
 				black: "#212121",
 				buttonColor: "#1EAEA3",
+				purple: "#7B61FF",
 				normalBlack: "#000",
-				signUpFormtext: "#7B61FF"
+				signUpFormtext: "#7B61FF",
 			},
 		},
 	},
