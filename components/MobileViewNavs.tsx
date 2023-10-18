@@ -74,7 +74,7 @@ const MobileViewNavs = () => {
 													{isCollapse ? <BiChevronDown /> : <BiChevronUp />}
 												</button>
 												<Collapse in={isCollapse}>
-													<div className="flex flex-row items-center justify-between w-full">
+													<div className="flex flex-row items-center justify-between w-full max-w-[12rem]">
 														{sidebarLink.icons?.map(
 															(item: string, index: number) => (
 																<div
